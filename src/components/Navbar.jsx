@@ -3,15 +3,16 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth"
 import { app } from "../firebase"
 import { useStateValue } from "../context/StateProvider"
 import { actionType } from "../context/reducer"
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import { BsFillBookmarkFill } from "react-icons/bs"
 import { FaHome } from "react-icons/fa"
 import { MdLogout } from "react-icons/md"
+import { BiSearch } from "react-icons/bi"
 
 function Navbar() {
+  const [redirect, setRedirect] = useState(false)
   const firebaseAuth = getAuth(app)
   const provider = new GoogleAuthProvider()
-
   const [{ user }, dispatch] = useStateValue()
 
   const [isMenu, setIsMenu] = useState(false)
@@ -34,27 +35,29 @@ function Navbar() {
   const logout = () => {
     setIsMenu(false)
     localStorage.clear()
-
     dispatch({
       type: actionType.SET_USER,
       user: null
     })
+    setRedirect(true)
+  }
+
+  if (redirect) {
+    return <Navigate to="/" />
   }
 
   return (
     <nav>
-      <Link to={"/"} className="logo">
-        <i className="fa-brands fa-airbnb"></i>
-        <h3>airbnb</h3>
-      </Link>
-      <div className="filter">
-        <span>Anywhere</span>
-        <span>Any week</span>
-        <span className="guests">Add guests</span>
-        <i className="fa-solid fa-magnifying-glass"></i>
+      <div className="search-bar">
+        <BiSearch className="search-icon"/>
+        <input type="text" placeholder="Where are you going"/>
       </div>
+      <Link to={"/"} className="logo">
+        <h4>Book</h4>
+        <h3>Me</h3>
+      </Link>
       <div className="account">
-        <Link to={"/create"} className="create-accommodation">Airbnb Your Home</Link>
+        <Link to={"/create"} className="create-accommodation">Your Home</Link>
         <i className="fa-solid fa-globe"></i>
         <div className="profile">
           <i className="fa-solid fa-bars"></i>

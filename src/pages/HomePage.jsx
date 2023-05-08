@@ -1,12 +1,15 @@
 import React from "react"
 import Categories from "../components/Categories"
 import Places from "../components/Places"
+import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
 
 function HomePage() {
   return (
     <div>
-      <Categories />
+      <Navbar />
       <Places />
+      <Footer />
     </div>
   )
 }
