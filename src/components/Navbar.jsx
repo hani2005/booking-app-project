@@ -10,7 +10,6 @@ import { MdLogout } from "react-icons/md"
 import { BiSearch } from "react-icons/bi"
 
 function Navbar() {
-  const [redirect, setRedirect] = useState(false)
   const firebaseAuth = getAuth(app)
   const provider = new GoogleAuthProvider()
   const [{ user }, dispatch] = useStateValue()
@@ -20,7 +19,7 @@ function Navbar() {
   const login = async () => {
     if (!user) {
       const {
-        user: { refreshToken, providerData }
+        user: { providerData }
       } = await signInWithPopup(firebaseAuth, provider)
       dispatch({
         type: actionType.SET_USER,
@@ -39,25 +38,22 @@ function Navbar() {
       type: actionType.SET_USER,
       user: null
     })
-    setRedirect(true)
-  }
-
-  if (redirect) {
-    return <Navigate to="/" />
   }
 
   return (
     <nav>
       <div className="search-bar">
-        <BiSearch className="search-icon"/>
-        <input type="text" placeholder="Where are you going"/>
+        <BiSearch className="search-icon" />
+        <input type="text" placeholder="Where are you going" />
       </div>
       <Link to={"/"} className="logo">
         <h4>Book</h4>
         <h3>Me</h3>
       </Link>
       <div className="account">
-        <Link to={"/create"} className="create-accommodation">Your Home</Link>
+        <Link to={"/create"} className="create-accommodation">
+          Your Home
+        </Link>
         <i className="fa-solid fa-globe"></i>
         <div className="profile">
           <i className="fa-solid fa-bars"></i>

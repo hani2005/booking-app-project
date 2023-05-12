@@ -4,9 +4,11 @@ import Footer from "../components/Footer"
 import { getAuth } from "firebase/auth"
 import { app, firestore } from "../firebase"
 import { doc, getDoc } from "firebase/firestore"
+import { useStateValue } from "../context/StateProvider"
 
 function BookingsPage() {
   const [bookingData, setBookingData] = useState([])
+  const [{ user }] = useStateValue()
 
   const auth = getAuth(app)
 
@@ -21,6 +23,16 @@ function BookingsPage() {
       }
     })
   }, [])
+
+  if (!user) {
+    return (
+      <div className="login-to-view">
+        <Navbar />
+        <h2>Please login to view your bookings</h2>
+        <Footer />
+      </div>
+    )
+  }
 
   return (
     <div>

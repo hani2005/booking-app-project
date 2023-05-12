@@ -26,9 +26,8 @@ function CreatePage() {
   const [maxGuests, setMaxGuests] = useState("")
   const [category, setCategory] = useState("")
   const [imageAsset, setImageAsset] = useState(null)
-  const [fields, setFields] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const [{ places }, dispatch] = useStateValue()
+  const [dispatch] = useStateValue()
 
   const uploadImage = (e) => {
     setIsLoading(true)
@@ -38,18 +37,15 @@ function CreatePage() {
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        const uploadProgress =
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
       },
       (error) => {
         console.log(error)
-        setFields(true)
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           setImageAsset(downloadURL)
           setIsLoading(false)
-          setFields(true)
         })
       }
     )
@@ -61,7 +57,6 @@ function CreatePage() {
     deleteObject(deleteRef).then(() => {
       setImageAsset(null)
       setIsLoading(false)
-      setFields(true)
     })
   }
 
@@ -81,7 +76,6 @@ function CreatePage() {
         !category ||
         !address
       ) {
-        setFields(true)
         setIsLoading(false)
         alert("Required fields can't be empty")
       } else {
@@ -101,13 +95,11 @@ function CreatePage() {
           saveItem(data)
         })
         setIsLoading(false)
-        setFields(true)
         alert("Item uploaded successfully")
         clearData()
       }
     } catch (error) {
       console.log(error)
-      setFields(true)
       setIsLoading(false)
       alert("Error while uploading : Try Again")
     }

@@ -4,9 +4,11 @@ import { getAuth } from "firebase/auth"
 import { doc, getDoc } from "firebase/firestore"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import { useStateValue } from "../context/StateProvider"
 
 function AccommodationsPage() {
   const [userData, setUserData] = useState([])
+  const [{ user }] = useStateValue()
 
   const auth = getAuth(app)
 
@@ -21,6 +23,16 @@ function AccommodationsPage() {
       }
     })
   }, [])
+
+  if (!user) {
+    return (
+      <div className="login-to-view">
+        <Navbar />
+        <h2>Please login to view your accommodations</h2>
+        <Footer />
+      </div>
+    )
+  }
 
   return (
     <div>
@@ -48,7 +60,9 @@ function AccommodationsPage() {
                     <strong>Category:</strong> {item.category}
                   </span>
                 </div>
-                <p><strong>Description:</strong> {item.description}</p>
+                <p>
+                  <strong>Description:</strong> {item.description}
+                </p>
                 <div className="house-rules">
                   <span>
                     <strong>Check-In:</strong> {item.checkIn}

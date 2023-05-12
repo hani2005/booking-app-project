@@ -855,6 +855,18 @@ nav {
   letter-spacing: -0.5px;
 }
 
+.login-to-view h2 {
+  color: #2a68ff;
+  text-align: center;
+  height: 50vh;
+}
+
+.add-booking, .add-accommodation {
+  color: #2a68ff;
+  text-align: center;
+  height: 50vh;
+}
+
 @media screen and (max-width: 1160px) {
   .img-container {
     flex-direction: column;
