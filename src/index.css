@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap");
 
 * {
   padding: 0;
@@ -8,11 +13,16 @@
   font-family: "Poppins", sans-serif;
 }
 
+:root {
+  --primary-color: #2a68ff;
+}
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
+  background-color: #f4f7f5;
 }
 
 .app {
@@ -24,6 +34,8 @@ nav {
   align-items: center;
   padding: 2rem;
   justify-content: space-between;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+  border-radius: 10px;
 }
 
 .logo {
@@ -35,15 +47,20 @@ nav {
 }
 
 .logo h3 {
-  font-size: 1.6rem;
+  font-size: 2.2rem;
   color: black;
   letter-spacing: -1.5px;
+  font-weight: 700;
+  font-family: "Kalam", sans-serif;
 }
 
 .logo h4 {
-  font-size: 1.6rem;
+  font-size: 2.2rem;
   letter-spacing: -1.5px;
-  color: #2a68ff;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-family: "Kalam", sans-serif;
+  margin-right: 0.3rem;
 }
 
 .search-bar {
@@ -61,7 +78,7 @@ nav {
 }
 
 .search-icon {
-  color: #2a68ff;
+  color: var(--primary-color);
   font-size: 1.5rem;
 }
 
@@ -73,13 +90,18 @@ nav {
 
 .create-accommodation {
   letter-spacing: -1px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   cursor: pointer;
   padding: 0.7rem 1rem;
   border-radius: 50px;
   text-decoration: none;
   color: black;
-  font-weight: 500;
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.create-accommodation:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .header img {
@@ -97,10 +119,11 @@ nav {
   align-items: center;
   gap: 10px;
   border-radius: 50px;
-  padding: 0.3rem 0.5rem 0.3rem 1rem;
-  border: 1px solid rgb(214, 214, 214);
+  padding: 0.5rem 0.7rem 0.5rem 1.2rem;
+  border: 2px solid rgb(214, 214, 214);
   cursor: pointer;
   margin-left: 0.6rem;
+  transition: 0.5s;
 }
 
 .profile img {
@@ -109,19 +132,7 @@ nav {
   border-radius: 50%;
 }
 
-.account .fa-globe {
-  padding: 0.7rem;
-  border-radius: 50px;
-  cursor: pointer;
-  color: #2a68ff;
-}
-
-.account .fa-globe:hover {
-  background-color: rgb(247, 247, 247);
-}
-
 .profile i {
-  font-size: 0.8rem;
   margin-top: 0.15rem;
 }
 
@@ -180,6 +191,7 @@ nav {
   height: 100%;
   object-fit: cover;
   border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .content-detail {
@@ -222,6 +234,7 @@ nav {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   margin-right: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .small-img-container {
@@ -233,6 +246,7 @@ nav {
 .small-img-container img {
   width: 280px;
   height: 200px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .img2 {
@@ -256,7 +270,7 @@ nav {
 }
 
 .location-icon {
-  color: #2a68ff;
+  color: var(--primary-color);
   font-size: 1.2rem;
 }
 
@@ -289,12 +303,12 @@ nav {
 }
 
 .book-price strong {
-  color: #2a68ff;
+  color: var(--primary-color);
   font-size: 1.3rem;
 }
 
 .review-icon {
-  color: #2a68ff;
+  color: var(--primary-color);
 }
 
 .box {
@@ -321,11 +335,11 @@ nav {
   font-weight: bold;
   font-size: 0.8rem;
   margin-bottom: 0.2rem;
-  color: #2a68ff;
+  color: var(--primary-color);
 }
 
 .check-out span {
-  color: #2a68ff;
+  color: var(--primary-color);
   font-weight: bold;
   font-size: 0.8rem;
   margin-bottom: 0.2rem;
@@ -357,7 +371,7 @@ nav {
 }
 
 .box-guests h5 {
-  color: #2a68ff;
+  color: var(--primary-color);
   font-size: 0.9rem;
 }
 
@@ -376,7 +390,7 @@ nav {
   padding: 0.8rem 0;
   border-radius: 10px;
   border: none;
-  background-color: #2a68ff;
+  background-color: var(--primary-color);
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -427,7 +441,7 @@ nav {
 .offer-detail-icon {
   font-size: 1.6rem;
   margin-right: 0.5rem;
-  color: #2a68ff;
+  color: var(--primary-color);
 }
 
 .extra-info {
@@ -454,7 +468,7 @@ nav {
 }
 
 .footer {
-  background-color: #2a68ff;
+  background-color: var(--primary-color);
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -512,11 +526,11 @@ nav {
 }
 
 .places-review-icon {
-  color: #2a68ff;
+  color: var(--primary-color);
 }
 
 .price strong {
-  color: #2a68ff;
+  color: var(--primary-color);
 }
 
 .menu {
@@ -534,7 +548,7 @@ nav {
 }
 
 .menu a {
-  color: #2a68ff;
+  color: var(--primary-color);
   text-decoration: none;
   padding-right: 0.5rem;
 }
@@ -577,7 +591,7 @@ nav {
 
 .logout-btn {
   font-size: 1.1rem;
-  color: #2a68ff;
+  color: var(--primary-color);
 }
 
 .create-container {
@@ -599,6 +613,7 @@ nav {
   padding: 1rem 0.7rem;
   border-radius: 10px;
   border: 1px solid rgb(124, 124, 124);
+  background-color: transparent;
 }
 
 .create-detail textarea {
@@ -606,6 +621,7 @@ nav {
   border-radius: 10px;
   border: 1px solid rgb(124, 124, 124);
   resize: none;
+  background-color: transparent;
 }
 
 .image-url {
@@ -647,7 +663,7 @@ nav {
 .loader {
   width: 50px;
   height: 50px;
-  color: #2a68ff;
+  color: var(--primary-color);
   margin: 0.5rem 0;
   animation: spin 1s linear infinite;
 }
@@ -694,7 +710,7 @@ nav {
 .save-details-btn {
   width: 100%;
   color: white;
-  background-color: #2a68ff;
+  background-color: var(--primary-color);
   padding: 1.5rem 0;
   border: none;
   border-radius: 10px;
@@ -716,7 +732,7 @@ nav {
 
 .accommodation-page h2 {
   margin-bottom: 2rem;
-  color: #2a68ff;
+  color: var(--primary-color);
   font-size: 2.2rem;
   letter-spacing: -1px;
 }
@@ -773,7 +789,7 @@ nav {
 
 .booking-page h2 {
   margin-bottom: 2rem;
-  color: #2a68ff;
+  color: var(--primary-color);
   font-size: 2.2rem;
   letter-spacing: -1px;
 }
@@ -856,15 +872,80 @@ nav {
 }
 
 .login-to-view h2 {
-  color: #2a68ff;
+  color: var(--primary-color);
   text-align: center;
   height: 50vh;
 }
 
-.add-booking, .add-accommodation {
-  color: #2a68ff;
+.add-booking,
+.add-accommodation {
+  color: var(--primary-color);
   text-align: center;
   height: 50vh;
+}
+
+.banner-container {
+  display: flex;
+  background-color: #f4f7f5;
+  border-radius: 30px;
+  margin: 4rem 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.banner-text {
+  flex: 2;
+  padding: 0 2rem;
+  margin-top: 5rem;
+}
+
+.banner-text h1 {
+  font-size: 2.9rem;
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 3.5rem;
+}
+
+.banner-text h1 b {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.banner-text h3 {
+  color: rgb(124, 124, 124);
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+.banner-container img {
+  flex: 3;
+  border-radius: 30px;
+}
+
+.brands {
+  display: flex;
+  align-items: center;
+}
+
+.brands img {
+  width: 30px !important;
+}
+
+.content-btn {
+  display: flex;
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  margin-bottom: 2rem;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1160px) {

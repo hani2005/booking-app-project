@@ -34,7 +34,7 @@ function Footer() {
         <ul className="footer-detail">
           <h3>Hosting</h3>
           <li>
-            <a href="">Airbnb your home</a>
+            <a href="">Book Me your home</a>
           </li>
           <li>
             <a href="">Explore hosting resources</a>
@@ -46,12 +46,12 @@ function Footer() {
             <a href="">How to host responsibly</a>
           </li>
           <li>
-            <a href="">AirCover for Hosts</a>
+            <a href="">Book Me for Hosts</a>
           </li>
         </ul>
       </div>
       <div className="copyright">
-        <span>&#169; Built & Designed By Hani Mohammed</span>
+        <span>Copyright &#169; Built & Designed By Hani Mohammed</span>
       </div>
     </div>
   )

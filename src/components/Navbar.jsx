@@ -7,7 +7,7 @@ import { Link, Navigate } from "react-router-dom"
 import { BsFillBookmarkFill } from "react-icons/bs"
 import { FaHome } from "react-icons/fa"
 import { MdLogout } from "react-icons/md"
-import { BiSearch } from "react-icons/bi"
+import { AiFillBook } from "react-icons/ai"
 
 function Navbar() {
   const firebaseAuth = getAuth(app)
@@ -42,19 +42,15 @@ function Navbar() {
 
   return (
     <nav>
-      <div className="search-bar">
-        <BiSearch className="search-icon" />
-        <input type="text" placeholder="Where are you going" />
-      </div>
       <Link to={"/"} className="logo">
         <h4>Book</h4>
         <h3>Me</h3>
+        {/* <AiFillBook /> */}
       </Link>
       <div className="account">
         <Link to={"/create"} className="create-accommodation">
           Your Home
         </Link>
-        <i className="fa-solid fa-globe"></i>
         <div className="profile">
           <i className="fa-solid fa-bars"></i>
           <img
