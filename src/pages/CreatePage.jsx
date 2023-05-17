@@ -9,7 +9,7 @@ import { app, storage } from "../firebase.js"
 import { getAllPlaces, saveItem } from "../utils/firebaseFunctions"
 import { useStateValue } from "../context/StateProvider"
 import Loader from "../components/Loader.jsx"
-import { categories } from "../utils/data"
+import { Toaster, toast } from "react-hot-toast"
 import { MdDelete, MdCloudUpload } from "react-icons/md"
 import { getAuth } from "firebase/auth"
 import { actionType } from "../context/reducer.js"
@@ -27,7 +27,7 @@ function CreatePage() {
   const [category, setCategory] = useState("")
   const [imageAsset, setImageAsset] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
-  const [dispatch] = useStateValue()
+  const [{ places }, dispatch] = useStateValue()
 
   const uploadImage = (e) => {
     setIsLoading(true)
@@ -37,7 +37,8 @@ function CreatePage() {
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        const uploadProgress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
       },
       (error) => {
         console.log(error)
@@ -77,7 +78,7 @@ function CreatePage() {
         !address
       ) {
         setIsLoading(false)
-        alert("Required fields can't be empty")
+        toast.error("Required fields can't be empty")
       } else {
         auth.onAuthStateChanged((user) => {
           const data = {
@@ -95,13 +96,13 @@ function CreatePage() {
           saveItem(data)
         })
         setIsLoading(false)
-        alert("Item uploaded successfully")
+        toast.success("Uploaded successfully")
         clearData()
       }
     } catch (error) {
       console.log(error)
       setIsLoading(false)
-      alert("Error while uploading : Try Again")
+      toast.error("Error while uploading : Try Again")
     }
     fetchData()
   }
@@ -129,6 +130,9 @@ function CreatePage() {
 
   return (
     <>
+      <div>
+        <Toaster />
+      </div>
       <Navbar />
       <div className="create-container">
         <div className="create-detail">

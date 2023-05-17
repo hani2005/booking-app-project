@@ -1,10 +1,9 @@
 import React from "react"
 import { useParams } from "react-router-dom"
 import placesData from "../utils/data"
-import { GrLocation } from "react-icons/gr"
 import { ImLocation } from "react-icons/im"
 import { IoIosArrowDown } from "react-icons/io"
-import { BsFillBookmarkStarFill } from "react-icons/bs"
+import { Toaster, toast } from "react-hot-toast"
 import { AiFillStar, AiOutlineStar } from "react-icons/ai"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
@@ -54,11 +53,14 @@ function PlacePage() {
       review: review
     }
     bookItem(data)
-    alert("Accommodation Booked")
+    toast.success("Accommodation Booked")
   }
 
   return (
     <>
+      <div>
+        <Toaster />
+      </div>
       <Navbar />
       <div className="place-container">
         <h2 className="place-title">{title}</h2>

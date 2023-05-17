@@ -3,11 +3,10 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth"
 import { app } from "../firebase"
 import { useStateValue } from "../context/StateProvider"
 import { actionType } from "../context/reducer"
-import { Link, Navigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { BsFillBookmarkFill } from "react-icons/bs"
 import { FaHome } from "react-icons/fa"
 import { MdLogout } from "react-icons/md"
-import { AiFillBook } from "react-icons/ai"
 
 function Navbar() {
   const firebaseAuth = getAuth(app)
@@ -41,11 +40,10 @@ function Navbar() {
   }
 
   return (
-    <nav>
+    <nav id="profile">
       <Link to={"/"} className="logo">
         <h4>Book</h4>
         <h3>Me</h3>
-        {/* <AiFillBook /> */}
       </Link>
       <div className="account">
         <Link to={"/create"} className="create-accommodation">
