@@ -54,12 +54,9 @@ function AccommodationsPage() {
                     <strong>${item.price}</strong> night
                   </span>
                 </div>
-                <div className="user-data-detail">
-                  <h4>{item.address}</h4>
-                  <span>
-                    <strong>Category:</strong> {item.category}
-                  </span>
-                </div>
+                <span className="user-data-address">
+                  <strong>Address:</strong> {item.address}
+                </span>
                 <p>
                   <strong>Description:</strong> {item.description}
                 </p>

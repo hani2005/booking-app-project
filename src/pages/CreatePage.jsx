@@ -24,7 +24,6 @@ function CreatePage() {
   const [checkIn, setCheckIn] = useState("")
   const [checkOut, setCheckOut] = useState("")
   const [maxGuests, setMaxGuests] = useState("")
-  const [category, setCategory] = useState("")
   const [imageAsset, setImageAsset] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [{ places }, dispatch] = useStateValue()
@@ -74,7 +73,6 @@ function CreatePage() {
         !price ||
         !checkOut ||
         !maxGuests ||
-        !category ||
         !address
       ) {
         setIsLoading(false)
@@ -85,7 +83,6 @@ function CreatePage() {
             id: user.uid,
             title: title,
             imageURL: imageAsset,
-            category: category,
             address: address,
             price: price,
             checkIn: checkIn,
@@ -112,7 +109,6 @@ function CreatePage() {
     setImageAsset(null)
     setAddress("")
     setPrice("")
-    setCategory("")
     setCheckIn("")
     setCheckOut("")
     setDescription("")
@@ -163,16 +159,6 @@ function CreatePage() {
             placeholder="address"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
-          />
-        </div>
-        <div className="create-detail">
-          <h2>Category</h2>
-          <span>Add a category for your place</span>
-          <input
-            type="text"
-            placeholder="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
           />
         </div>
         <div className="create-detail">

@@ -32,6 +32,7 @@ body {
 
 nav {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   padding: 2rem;
   justify-content: space-between;
@@ -727,6 +728,9 @@ nav {
 }
 
 .user-data-texts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   margin-top: 1rem;
 }
 
@@ -747,12 +751,9 @@ nav {
   justify-content: space-between;
 }
 
-.user-data-detail {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-}
+/* .user-data-address {
+  margin: 2rem 0;
+} */
 
 .house-rules {
   margin-top: 1.5rem;
@@ -773,14 +774,6 @@ nav {
 
 .user-data-title span {
   font-size: 1.1rem;
-}
-
-.user-data-detail strong {
-  margin-right: 0.2rem;
-}
-
-.user-data-detail h4 {
-  font-weight: 500;
 }
 
 .house-rules strong {
@@ -1030,6 +1023,14 @@ nav {
   .booking-details {
     padding: 0;
   }
+
+  .banner-container {
+    flex-wrap: wrap;
+  }
+
+  .value-container {
+    flex-wrap: wrap;
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -1074,27 +1075,29 @@ nav {
 
   .user-data-title {
     flex-direction: column;
+    gap: 5px;
   }
 
   .user-data-title span {
-    margin: 0.5rem 0;
-  }
-
-  .user-data-detail {
-    flex-direction: column;
-  }
-
-  .user-data-detail span {
-    margin: 0.5rem 0;
+    margin: 0.5rem 0 0.5rem 0;
   }
 
   .user-data-texts p {
     font-size: 0.9rem;
+    margin-top: 0.8rem;
   }
 
   .booking-house-rules {
     flex-direction: column;
     gap: 5px;
+  }
+
+  .banner-container img {
+    width: 100%;
+  }
+
+  .value-container img {
+    width: 100%;
   }
 }
 
@@ -1114,6 +1117,33 @@ nav {
 
   .booking-title span {
     margin: 0.5rem 0;
+  }
+
+  .banner-text h1 {
+    font-size: 2.2rem;
+    line-height: 3rem;
+  }
+
+  .banner-text h3 {
+    font-size: 0.85rem;
+  }
+
+  /* 
+  .banner-text h1 br {
+    display: none;
+  } */
+
+  .banner-text {
+    margin-top: 2rem;
+  }
+
+  .value-text h1 {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+
+  .value-text h3 {
+    font-size: 0.85rem;
   }
 }
 
@@ -1136,6 +1166,11 @@ nav {
     width: 200px;
     height: 150px;
   }
+
+  .banner-container,
+  .value-container {
+    margin: 5rem 0;
+  }
 }
 
 @media screen and (max-width: 375px) {
@@ -1145,6 +1180,21 @@ nav {
 
   .accommodation-page h2 {
     font-size: 1.3rem;
+  }
+
+  .banner-container h1 {
+    font-size: 2rem;
+    line-height: 2.6rem;
+  }
+
+  .banner-text,
+  .value-text {
+    padding: 0 1rem;
+  }
+
+  .value-text h1 {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
   }
 }
 
@@ -1163,5 +1213,15 @@ nav {
 
   .booking-page h2 {
     font-size: 1.7rem;
+  }
+
+  .banner-text h1, .value-text h1 {
+    font-size: 1.5rem;
+    line-height: 2.1rem;
+  }
+
+  .banner-text h3, .value-text h3 {
+    font-size: 0.75rem;
+    margin-top: 1rem;
   }
 }
