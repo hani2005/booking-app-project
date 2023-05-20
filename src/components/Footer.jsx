@@ -51,7 +51,7 @@ function Footer() {
         </ul>
       </div>
       <div className="copyright">
-        <span>Copyright &#169; Built & Designed By Hani Mohammed</span>
+        <span>Copyright &#169; Built & Designed By Hani Abdelkareem</span>
       </div>
     </div>
   )
